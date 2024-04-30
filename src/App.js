@@ -1,24 +1,54 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
+import { Card ,Image } from 'antd';
 import './App.css';
+import { afficherFilms } from './api/apiProduct';
+
+import { Button } from '@mui/material';
 
 function App() {
+  const [filmsPourAlbum, setFilmsPourAlbum] = useState([]);
+
+  useEffect(() => {
+    const fetchFilms = async () => {
+      const films = await afficherFilms();
+      setFilmsPourAlbum(films);
+    };
+
+    fetchFilms();
+  }, []);
+
   return (
+<>
+    <div className='image'>
+    <Image
+    width="100%"
+    src="img.jpg"
+    
+  />
+  
+  </div>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className='ayman'>
+      {filmsPourAlbum.map(film => (
+        <Card key={film.id} style={{ width: 300 }} >
+          <div className="custom-image">
+          <Image alt={film.thumbnailUrl} width="100%" src={film.url} />
+          </div>
+          <div className="custom-card">
+            <h3>{film.title}</h3>
+            <p>{film.title}</p>
+    
+      <Button variant="contained" color="success">
+        add
+      </Button>
+      
+  
+          </div>
+        </Card>
+      ))}
+</div>
+   </div>
+   </>
   );
 }
 

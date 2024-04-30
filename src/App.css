@@ -1,5 +1,23 @@
 .App {
-  text-align: center;
+text-align: center;
+ margin: 20pX;
+}
+
+.image {
+  height: auto;
+}
+
+.ayman {
+  position: absolute;
+  top: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.custom-card {
+  width: 100%; /* Pour laisser un peu d'espace entre les cartes */
+  margin-bottom: 20px; /* Espacement entre les lignes */
 }
 
 .App-logo {

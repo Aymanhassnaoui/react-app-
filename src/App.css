@@ -10,9 +10,9 @@ text-align: center;
 .ayman {
   position: absolute;
   top: 600px;
+  left: 230px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .custom-card {

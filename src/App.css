@@ -5,13 +5,17 @@ text-align: center;
 
 .image {
   height: auto;
+  position: relative;
+  
 }
+
 
 .ayman {
   position: absolute;
   top: 600px;
   left: 230px;
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 

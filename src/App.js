@@ -1,54 +1,25 @@
-import { useEffect, useState } from 'react';
-import { Card ,Image } from 'antd';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import { afficherFilms } from './api/apiProduct';
+import Home from './compenent/Home';
+import Cart from './compenent/cart/cart';
 
-import { Button } from '@mui/material';
 
 function App() {
-  const [filmsPourAlbum, setFilmsPourAlbum] = useState([]);
 
-  useEffect(() => {
-    const fetchFilms = async () => {
-      const films = await afficherFilms();
-      setFilmsPourAlbum(films);
-    };
+  const handleClick = () => {
+    console.log('ajoute to pannier');
+  };
 
-    fetchFilms();
-  }, []);
 
+  const message = "Hello from the App component!";
   return (
-<>
-    <div className='image'>
-    <Image
-    width="100%"
-    src="img.jpg"
-    
-  />
-  
-  </div>
-    <div className="App">
-      <div className='ayman'>
-      {filmsPourAlbum.map(film => (
-        <Card key={film.id} style={{ width: 300 }} >
-          <div className="custom-image">
-          <Image alt={film.thumbnailUrl} width="100%" src={film.url} />
-          </div>
-          <div className="custom-card">
-            <h3>{film.title}</h3>
-            <p>{film.title}</p>
-    
-      <Button variant="contained" color="success">
-        add
-      </Button>
-      
-  
-          </div>
-        </Card>
-      ))}
-</div>
-   </div>
-   </>
+    <>
+      <Routes>
+        <Route path="/" element={<Home  onButtonClick={handleClick} message={message} />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
+    </>
   );
 }
 

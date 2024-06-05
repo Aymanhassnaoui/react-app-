@@ -30,7 +30,7 @@ function BarMenu() {
   }, []);
 
   return (
-    <>
+    <div style = {{position : 'fixed' , zIndex: 1  }} >
      <Swiper
         direction={'vertical'}
         pagination={{
@@ -43,7 +43,7 @@ function BarMenu() {
         initialSlide={2}
         modules={[Pagination]}
         className="mySwiper"
-        style={{      width: '197px' , borderRadius: '13px', height: '721px', background: 'rgb(35,77,78) linear-gradient(0deg, rgba(35,77,78,1) 14%, rgba(59,59,62,1) 45%, rgba(0,0,0,1) 97%)' }}
+        style={{      width: '197px' , borderRadius: '13px', height: '721px' }}
       >
         {menu.map((menuItem, index) => (
           <SwiperSlide key={index} >
@@ -53,7 +53,7 @@ function BarMenu() {
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </div>
 
   );
 }
